@@ -1,0 +1,2 @@
+group_id,industries_compared,highest_stakes_industry,recurring_harms,common_failure_layers,human_in_loop_decisions,strongest_guardrails,cross_industry_pattern,evidence_source_ids
+GROUP-2A202601745,content-creator,content-creator,misinformation;privacy-loss,model;data;governance-process,Phê duyệt nội dung trước khi xuất bản; rà soát ngẫu nhiên các quyết định cạnh ngưỡng,Không tự động xuất bản; kiểm tra thực tế địa điểm; giới hạn tối ưu hóa tần suất,Mô hình đề xuất có thể khuếch đại tác hại khi thiếu review và kiểm chứng, SRC-01;SRC-02;SRC-03
