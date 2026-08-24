@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0.0",
+  "metadata": {
+    "student_name": "Dao Ngoc Bich",
+    "student_id": "2A202601745",
+    "group_id": "2A202601745-DaoNgocBich",
+    "submitted_at": "2026-08-24T10:00:00+07:00"
+  },
+  "industry": "content-creator",
+  "product_context": {
+    "product_name": "VlogStudio Assistant (Tạo kịch bản + Tối ưu khán giả)",
+    "product_stage": "pilot",
+    "problem_statement": "Người làm vlog du lịch tốn nhiều thời gian để soạn kịch bản và xác định chủ đề/lịch đăng phù hợp cho từng phân khúc khán giả, dẫn đến sản lượng không ổn định và mất cơ hội tăng retention.",
+    "target_users": ["vlogger du lịch", "quản lý kênh", "nhóm sáng tạo nhỏ"],
+    "value_hypothesis": "Nếu hệ thống sinh bản thảo kịch bản phù hợp về tone và format đồng thời gợi ý chủ đề và lịch đăng theo phân khúc, người sáng tạo giảm 50% thời gian soạn kịch bản và tăng retention cùng thời lượng xem trên các nhóm mục tiêu.",
+    "in_scope": ["tạo bản nháp kịch bản (mở đầu/nội dung/kêu gọi hành động)", "gợi ý cảnh quay và B-roll", "phân đoạn khán giả và đề xuất chủ đề/lịch đăng", "gợi ý thử nghiệm A/B"],
+    "non_goals": ["tự động đăng nội dung mà không có phê duyệt con người", "thay thế định hướng sáng tạo của con người", "xử lý dữ liệu PII nhạy cảm khi chưa có sự đồng ý"],
+    "user_journey_moment": "Giai đoạn tiền sản xuất: khi lập kế hoạch nội dung và lịch đăng, trước khi quay và xuất bản.",
+    "target_launch_or_review_date": "2026-12-01",
+    "automation_level": "semi-automated",
+    "fallback_experience": "Khi AI không trả về kết quả hoặc chất lượng thấp, creator sử dụng mẫu thủ công đã lưu và lịch mặc định an toàn; mọi đầu ra có thể chỉnh sửa hoặc tạo lại bởi con người.",
+    "decision_reversibility": "reversible"
+  },
+  "system_profile": {
+    "purpose": "Hỗ trợ người làm vlog du lịch bằng cách sinh bản nháp kịch bản có thể chỉnh sửa và đề xuất chủ đề/lịch đăng theo phân khúc khán giả nhằm tăng tính nhất quán và retention.",
+    "user_groups": ["vlogger", "quản lý kênh", "biên tập viên video"],
+    "decision_impact": "Các khuyến nghị ảnh hưởng đến lựa chọn sáng tạo, thời điểm đăng và cách trình bày nội dung, tác động tới lượt xem và doanh thu nhưng không tự động xuất bản hay đưa ra quyết định pháp lý.",
+    "data_types": ["số liệu tương tác lịch sử", "thống kê phân khúc khán giả (tổng hợp không nhạy cảm)", "metadata nội dung", "bản transcript và kịch bản trước đó"],
+    "deployment_context": "Dịch vụ SaaS trên cloud tích hợp vào dashboard creator với luồng phê duyệt thủ công; tùy chọn xuất bản cục bộ để chỉnh sửa.",
+    "target_markets": ["Vietnam", "European Union"],
+    "system_boundary": {
+      "model": "mô hình sinh văn bản và mô hình đề xuất (LLM bên thứ ba + mô hình chấm điểm)",
+      "application": "ứng dụng web studio creator và dashboard lập lịch",
+      "people": ["người sáng tạo", "quản lý kênh", "biên tập viên"],
+      "vendors": ["nhà cung cấp LLM", "nhà cung cấp phân tích"],
+      "upstream_inputs": ["bản tóm tắt do người dùng cung cấp", "dữ liệu phân tích lịch sử", "tín hiệu xu hướng công khai"],
+      "downstream_decisions": ["nội dung kịch bản cuối cùng", "chọn thời điểm đăng", "cấu hình A/B test"]
+    }
+  },
+  "industry_risk_snapshot": {
+    "harm_severity": 4,
+    "high_stakes": 4,
+    "sensitive_data": 2,
+    "affected_scale": 4,
+    "human_review_need": 4,
+    "rationale": "Harm severity = 4 (gần anchor 5 'ảnh hưởng sức khỏe/sinh mạng' nhưng chưa full 5 vì có editorial review làm giảm khả năng xảy ra): hậu quả tệ nhất đáng tin cậy không chỉ dừng ở uy tín/kinh doanh (vụ Sports Illustrated đăng bài dưới bút danh AI giả khiến CEO công ty mẹ bị sa thải — SRC-01;SRC-06;SRC-07) mà còn có thể là tổn hại sức khỏe thể chất khi kịch bản mô tả sai thông tin an toàn địa điểm (rủi ro ngộ độc, lạc đường — SRC-03;SRC-04) hoặc khuếch đại nội dung tự hại tới khán giả dễ tổn thương nếu đề xuất phân khúc tối ưu tương tác thiếu kiểm soát (SRC-02;SRC-08). High stakes = 4 vì quyết định ảnh hưởng trực tiếp tới sinh kế của creator và sức khỏe/an toàn của một phần khán giả làm theo hướng dẫn — không chỉ 'đáng kể, sửa được' (anchor 3) mà chạm tới tiêu chí 'sức khỏe, sinh kế' của anchor 5, dù decision_reversibility ở mức sản phẩm vẫn là reversible nên chưa neo full 5. Sensitive data = 2 vì hệ thống dùng nhiều dữ liệu tổng hợp/ẩn danh (anchor 1-2); rủi ro PII tồn tại khi tích hợp dữ liệu người dùng nhưng non_goals đã loại trừ xử lý PII chưa có consent. Affected scale = 4 bởi nội dung viral có thể tiếp cận hàng chục nghìn đến triệu người, khuếch đại tác hại tương tự cơ chế thuật toán TikTok 'For You' đẩy nhanh nội dung nhạy cảm tới nhóm dễ tổn thương (SRC-02;SRC-08) — gần anchor 5 'quy mô lớn'. Human review need = 4 vì bản nháp cần phê duyệt con người có thẩm quyền chặn/gỡ trước và sau khi xuất bản để giảm rủi ro thông tin sai lệch và vi phạm chính sách (xem human_oversight trong harm-map.csv). Uncertainty: các case tham chiếu là bằng chứng tương tự (analogous), không phải audit trực tiếp trên VlogStudio; mức độ harm thực tế phụ thuộc hiệu lực của control chưa triển khai (GAP-02, GAP-03). Evidence: SRC-01, SRC-02, SRC-03, SRC-04, SRC-06, SRC-07, SRC-08."
+  },
+  "legal_classification": {
+    "vietnam": {
+      "status": "uncertain-requires-legal-review",
+      "rationale": "Luật AI Việt Nam và các văn bản hướng dẫn phải được xem xét để xác định liệu tính năng đề xuất/sinh nội dung có thuộc diện rủi ro cao hoặc chịu các nghĩa vụ xử lý dữ liệu đặc thù hay không.",
+      "source_ids": ["SRC-05"]
+    },
+    "eu": {
+      "status": "uncertain-requires-legal-review",
+      "rationale": "Tính năng đề xuất và sinh nội dung liên quan tới nghĩa vụ minh bạch và bảo vệ người tiêu dùng; tính áp dụng của Phụ lục III cần được kiểm tra bởi ý kiến pháp lý.",
+      "source_ids": ["SRC-05"]
+    },
+    "other_markets": "Ngoài phạm vi hiện tại: system_profile.target_markets chỉ khai báo Vietnam và European Union; sản phẩm chưa có kế hoạch mở rộng sang thị trường khác nên chưa đánh giá pháp lý cho các jurisdiction ngoài hai thị trường này. Sẽ đánh giá lại khi có quyết định mở rộng thị trường mới (xem next_review_trigger).",
+    "legal_review_required": true
+  },
+  "product_metrics": {
+    "success_kpi": "Tăng thời lượng xem trung vị trên mỗi người xem cho các phân khúc mục tiêu lên 10% trong vòng ba tháng pilot.",
+    "risk_kri": "Tỷ lệ video đã xuất bản bị báo cáo là thông tin sai lệch hoặc bị gỡ do vi phạm chính sách dưới 0.5% mỗi tháng; đồng thời số khiếu nại hoặc opt-out từ khán giả về việc bị nhắm mục tiêu quá mức trong một phân khúc phải bằng 0 mỗi tuần trước khi kích hoạt điều tra (khớp trigger_threshold của CASE-03 trong harm-map.csv).",
+    "guardrail_metric": "Không có hành động tự động xuất bản; cần phê duyệt thủ công trước khi xuất bản. Không tự động tăng tần suất đề xuất nội dung cho phân khúc khán giả có tín hiệu dễ tổn thương; mọi đề xuất tần suất cao phải qua duyệt thủ công của quản lý kênh trước khi áp dụng (xem GAP-03).",
+    "review_cadence": "Rà soát rủi ro hàng tháng và trước mỗi thay đổi mô hình, chính sách hoặc khi mở rộng thị trường mới."
+  },
+  "release_decision": {
+    "accountable_product_owner": "Product Owner - Công cụ Creator",
+    "risk_acceptance_owner": "Trưởng nền tảng Creator",
+    "independent_reviewer": "Hội đồng Đánh giá AI Có Trách Nhiệm",
+    "decision": "research-only",
+    "release_blockers": ["GAP-01: đang chờ rà soát pháp lý", "GAP-02: thiếu bước xác minh bắt buộc thông tin an toàn/địa điểm trước khi publish", "GAP-03: thiếu giới hạn tần suất đề xuất cho phân khúc dễ tổn thương"],
+    "release_conditions": ["hoàn tất rà soát pháp lý", "đã có báo cáo kiểm toán an toàn nội dung cho pilot", "đã triển khai và kiểm thử checklist xác minh an toàn/địa điểm trước khi publish (GAP-02)", "đã triển khai giới hạn tần suất và duyệt thủ công cho phân khúc dễ tổn thương (GAP-03)"],
+    "next_review_trigger": "Khi risk_kri vượt ngưỡng (>=0.5% video bị báo cáo/gỡ mỗi tháng, hoặc >0 khiếu nại nhắm mục tiêu quá mức trong 1 tuần), khi guardrail_metric bị vi phạm, khi có sự cố nội dung được báo cáo, khi thay đổi model/vendor LLM, hoặc vào ngày rà soát pilot 2026-12-01.",
+    "residual_risk_rationale": "Sau khi áp dụng control đề xuất trong harm-map.csv, residual severity cao nhất còn lại là 3/5 cho CASE-02 (sai thông tin an toàn/địa điểm) và 2/5 cho CASE-01, CASE-03 — vẫn có thể ảnh hưởng sức khỏe hoặc uy tín nếu control chưa triển khai đầy đủ. Vì GAP-01 (rà soát pháp lý), GAP-02 (xác minh an toàn/địa điểm) và GAP-03 (giới hạn tần suất cho phân khúc dễ tổn thương) đều có status=not-started, quyết định research-only phù hợp với evidence hiện có; sẽ nâng lên conditional-go chỉ khi cả ba gap đạt status=done kèm acceptance evidence tương ứng."
+  }
+}
