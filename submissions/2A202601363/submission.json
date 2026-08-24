@@ -49,12 +49,12 @@
     "vietnam": {
       "status": "uncertain-requires-legal-review",
       "rationale": "Hệ thống hoạt động như một ứng dụng tự động tương tác cộng đồng chatbot và hỗ trợ viết kịch bản cho KOL tại Việt Nam. Do các văn bản hướng dẫn Luật An ninh mạng và Luật Bảo vệ dữ liệu cá nhân đối với công nghệ AI tạo nội dung vẫn đang tiếp tục hoàn thiện, trạng thái phân loại pháp lý chính xác của vai trò nhà cung cấp dịch vụ so với bên sử dụng dịch vụ KOL chưa được xác định rõ ràng, đòi hỏi phải có ý kiến đánh giá pháp lý chuyên sâu từ luật sư trước khi phát hành thử nghiệm.",
-      "source_ids": ["SRC-01", "SRC-02"]
+      "source_ids": ["SRC-12"]
     },
     "eu": {
       "status": "uncertain-requires-legal-review",
       "rationale": "Ứng dụng cung cấp tính năng sinh nội dung tự động kịch bản và chatbot trả lời công khai người dùng tại thị trường EU. Theo quy định của Đạo luật AI của Liên minh châu Âu EU AI Act, hệ thống chatbot này thuộc nhóm nghĩa vụ minh bạch đặc biệt Điều 52. Tuy nhiên, vì sản phẩm chỉ ở giai đoạn thử nghiệm pilot và vai trò phân phối trách nhiệm giữa bên phát triển phần mềm chúng ta và người dùng cuối KOL vẫn cần thẩm định chi tiết theo các tiêu chí của EU, do đó chúng ta giữ trạng thái chưa chắc chắn và yêu cầu rà soát pháp lý đầy đủ trước khi kích hoạt dịch vụ cho thị trường EU.",
-      "source_ids": ["SRC-03"]
+      "source_ids": ["SRC-05"]
     },
     "other_markets": "Các thị trường ngoài Việt Nam và Liên minh Châu Âu hiện chưa nằm trong phạm vi phát hành mục tiêu target market và kế hoạch vận hành của sản phẩm trong giai đoạn thử nghiệm này. Mọi truy cập từ các quốc gia khác sẽ bị chặn bằng IP để đảm bảo tính an toàn và giảm thiểu rủi ro pháp lý ngoài tầm kiểm soát.",
     "legal_review_required": true
