@@ -1,78 +1,86 @@
 {
   "schema_version": "1.0.0",
   "metadata": {
-    "student_name": "<FILL>",
-    "student_id": "<FILL>",
-    "group_id": "<FILL>",
-    "submitted_at": "<FILL ISO-8601 DATE-TIME>"
+    "student_name": "Lương Trang",
+    "student_id": "2A202601363",
+    "group_id": "GROUP-01",
+    "submitted_at": "2026-08-24T21:52:00+07:00"
   },
-  "industry": "<CHOOSE FROM lab.config.json>",
+  "industry": "media-news-social-political-assistant",
   "product_context": {
-    "product_name": "<FILL>",
-    "product_stage": "<CHOOSE>",
-    "problem_statement": "<FILL>",
-    "target_users": ["<FILL>"],
-    "value_hypothesis": "<FILL>",
-    "in_scope": ["<FILL>"],
-    "non_goals": ["<FILL>"],
-    "user_journey_moment": "<FILL>",
-    "target_launch_or_review_date": "<YYYY-MM-DD>",
-    "automation_level": "<CHOOSE>",
-    "fallback_experience": "<FILL: what happens when AI is unavailable or unsafe>",
-    "decision_reversibility": "<CHOOSE>"
+    "product_name": "Trợ lý AI quản lý kênh TikTok KOL Du lịch",
+    "product_stage": "pilot",
+    "problem_statement": "Các KOL du lịch phải đối mặt với áp lực sáng tạo nội dung liên tục và lượng tương tác bình luận quá tải dẫn đến chậm trễ hoặc phát tán thông tin sai lệch.",
+    "target_users": ["KOL du lịch", "Quản lý mạng xã hội", "Nhà sáng tạo nội dung"],
+    "value_hypothesis": "Ứng dụng trợ lý AI sinh kịch bản nháp và tự động phản hồi từ database giúp tăng tương tác an toàn giảm thời gian làm việc và hạn chế lỗi tin giả.",
+    "in_scope": ["Soạn thảo kịch bản video du lịch nháp", "Tự động phản hồi bình luận từ database xác thực", "Lọc bình luận độc hại và bất thường"],
+    "non_goals": ["Tự động đăng tải video mà không qua KOL phê duyệt", "Tự động cập nhật cơ sở dữ liệu du lịch mà không qua kiểm duyệt", "Tự tạo video hoàn chỉnh từ kịch bản"],
+    "user_journey_moment": "Phê duyệt kịch bản trước khi quay và tự động phản hồi bình luận thời gian thực.",
+    "target_launch_or_review_date": "2026-10-15",
+    "automation_level": "semi-automated",
+    "fallback_experience": "Hệ thống lọc tự động chuyển bình luận nghi ngờ về hàng chờ và phản hồi bình luận bằng các câu trả lời FAQ tĩnh khi hệ thống mất kết nối.",
+    "decision_reversibility": "reversible"
   },
   "system_profile": {
-    "purpose": "<FILL>",
-    "user_groups": ["<FILL>"],
-    "decision_impact": "<FILL>",
-    "data_types": ["<FILL>"],
-    "deployment_context": "<FILL>",
-    "target_markets": ["<FILL>"],
+    "purpose": "Hỗ trợ các nhà sáng tạo nội dung du lịch soạn thảo kịch bản và tự động trả lời bình luận thông tin du lịch.",
+    "user_groups": ["Nhà sáng tạo nội dung", "Quản trị viên kênh TikTok"],
+    "decision_impact": "Ảnh hưởng đến trải nghiệm và kế hoạch đi lại của người xem nhưng không liên quan đến quyết định tài chính lớn hay y tế.",
+    "data_types": ["Nội dung bình luận người dùng", "Cơ sở dữ liệu lịch trình đã xác thực", "Kịch bản video lịch sử và văn hóa"],
+    "deployment_context": "Hệ thống phần mềm SaaS chạy trên nền tảng đám mây tích hợp với TikTok thông qua API.",
+    "target_markets": ["Vietnam", "European Union"],
     "system_boundary": {
-      "model": "<FILL>",
-      "application": "<FILL>",
-      "people": ["<FILL>"],
-      "vendors": ["<FILL OR none>"],
-      "upstream_inputs": ["<FILL>"],
-      "downstream_decisions": ["<FILL>"]
+      "model": "Mô hình ngôn ngữ lớn LLM và công cụ tìm kiếm kiểm soát RAG",
+      "application": "Trang điều khiển creator dashboard và chatbot tự động TikTok",
+      "people": ["TikTok KOL", "Khách du lịch", "Biên tập viên", "Quản trị viên hệ thống"],
+      "vendors": ["Nhà cung cấp API LLM", "Nhà cung cấp dịch vụ đám mây"],
+      "upstream_inputs": ["Yêu cầu từ KOL", "Bình luận của người dùng", "Cơ sở dữ liệu du lịch"],
+      "downstream_decisions": ["Đăng tải kịch bản nháp", "Xuất bản bình luận tự động", "Chuyển bình luận nghi ngờ cho admin"]
     }
   },
   "industry_risk_snapshot": {
-    "harm_severity": 0,
-    "high_stakes": 0,
-    "sensitive_data": 0,
-    "affected_scale": 0,
-    "human_review_need": 0,
-    "rationale": "<Explain the 1-5 ratings with evidence. This score is not a legal classification.>"
+    "harm_severity": 3,
+    "high_stakes": 3,
+    "sensitive_data": 2,
+    "affected_scale": 4,
+    "human_review_need": 4,
+    "rationale": "Mô hình trợ lý AI du lịch có mức độ rủi ro chấn thương ở mức trung bình do chỉ đường sai nhưng quy mô phát tán thông tin sai lệch đến hàng triệu người theo dõi là rất lớn Scale 4. Vì vậy việc thiết lập quy trình kiểm duyệt của con người và bảo vệ dữ liệu là cực kỳ quan trọng để bảo đảm an toàn thông tin."
   },
   "legal_classification": {
     "vietnam": {
       "status": "uncertain-requires-legal-review",
-      "rationale": "<FILL>",
-      "source_ids": ["SRC-01"]
+      "rationale": "Hệ thống hoạt động như một ứng dụng tự động tương tác cộng đồng chatbot và hỗ trợ viết kịch bản cho KOL tại Việt Nam. Do các văn bản hướng dẫn Luật An ninh mạng và Luật Bảo vệ dữ liệu cá nhân đối với công nghệ AI tạo nội dung vẫn đang tiếp tục hoàn thiện, trạng thái phân loại pháp lý chính xác của vai trò nhà cung cấp dịch vụ so với bên sử dụng dịch vụ KOL chưa được xác định rõ ràng, đòi hỏi phải có ý kiến đánh giá pháp lý chuyên sâu từ luật sư trước khi phát hành thử nghiệm.",
+      "source_ids": ["SRC-01", "SRC-02"]
     },
     "eu": {
       "status": "uncertain-requires-legal-review",
-      "rationale": "<FILL>",
-      "source_ids": ["SRC-02"]
+      "rationale": "Ứng dụng cung cấp tính năng sinh nội dung tự động kịch bản và chatbot trả lời công khai người dùng tại thị trường EU. Theo quy định của Đạo luật AI của Liên minh châu Âu EU AI Act, hệ thống chatbot này thuộc nhóm nghĩa vụ minh bạch đặc biệt Điều 52. Tuy nhiên, vì sản phẩm chỉ ở giai đoạn thử nghiệm pilot và vai trò phân phối trách nhiệm giữa bên phát triển phần mềm chúng ta và người dùng cuối KOL vẫn cần thẩm định chi tiết theo các tiêu chí của EU, do đó chúng ta giữ trạng thái chưa chắc chắn và yêu cầu rà soát pháp lý đầy đủ trước khi kích hoạt dịch vụ cho thị trường EU.",
+      "source_ids": ["SRC-03"]
     },
-    "other_markets": "<FILL OR not assessed>",
+    "other_markets": "Các thị trường ngoài Việt Nam và Liên minh Châu Âu hiện chưa nằm trong phạm vi phát hành mục tiêu target market và kế hoạch vận hành của sản phẩm trong giai đoạn thử nghiệm này. Mọi truy cập từ các quốc gia khác sẽ bị chặn bằng IP để đảm bảo tính an toàn và giảm thiểu rủi ro pháp lý ngoài tầm kiểm soát.",
     "legal_review_required": true
   },
   "product_metrics": {
-    "success_kpi": "<PRODUCT OUTCOME + TARGET>",
-    "risk_kri": "<RISK INDICATOR + TARGET>",
-    "guardrail_metric": "<HARD LIMIT + TARGET>",
-    "review_cadence": "<CADENCE + EVENT TRIGGERS>"
+    "success_kpi": "Tỷ lệ phản hồi bình luận của người theo dõi trong vòng 5 phút đạt tối thiểu 90 phần trăm và thời gian soạn thảo kịch bản trung bình của KOL giảm 30 phần trăm trong vòng 30 ngày kể từ khi triển khai.",
+    "risk_kri": "Tỷ lệ bình luận của chatbot bị người dùng báo cáo sai lệch thông tin địa điểm hoặc lịch trình vượt quá 1 phần trăm tổng số phản hồi tự động hàng tuần hoặc tỷ lệ truy vấn database thất bại vượt quá 5 phần trăm.",
+    "guardrail_metric": "Số lượng video xuất bản chứa thông tin do AI tự chế chưa qua KOL duyệt bằng mắt và số lượng phản hồi tự động sai lệch dẫn đến phản ánh chính quyền địa phương phải bằng không tuyệt đối.",
+    "review_cadence": "Kiểm duyệt định kỳ vào ngày đầu tiên của mỗi tháng và kích hoạt đánh giá lại ngay lập tức khi phát hiện bất kỳ sự cố sai thông tin nào từ người dùng, thay đổi nhà cung cấp API LLM, cập nhật cơ sở dữ liệu lịch trình hoặc khi mở rộng thị trường phát hành mới."
   },
   "release_decision": {
-    "accountable_product_owner": "<ROLE, NOT PERSON>",
-    "risk_acceptance_owner": "<ROLE WITH AUTHORITY>",
-    "independent_reviewer": "<ROLE, NOT PERSON>",
-    "decision": "research-only",
-    "release_blockers": ["GAP-01: <FILL OR use none when no blocker>"],
-    "release_conditions": ["<FILL>"],
-    "next_review_trigger": "<DATE, METRIC, INCIDENT OR SCOPE CHANGE>",
-    "residual_risk_rationale": "<FILL>"
+    "accountable_product_owner": "Trưởng bộ phận sản phẩm",
+    "risk_acceptance_owner": "Giám đốc Vận hành kênh KOL",
+    "independent_reviewer": "Hội đồng Đánh giá AI có trách nhiệm",
+    "decision": "conditional-go",
+    "release_blockers": [
+      "GAP-01: Gắn nhãn AI và tích hợp bộ lọc từ khóa thuần phong mỹ tục Việt Nam chưa hoàn thành.",
+      "GAP-02: Cơ chế chuyển tiếp lên con người và thông báo minh bạch cho người dùng EU chưa triển khai.",
+      "GAP-03: Quy trình hậu kiểm kịch bản và checklist xác thực nguồn địa danh cho KOL chưa được thiết lập."
+    ],
+    "release_conditions": [
+      "Trưởng bộ phận nội dung phê duyệt 100 phần trăm kịch bản nháp bằng chữ ký số trên hệ thống kiểm soát nội bộ trước khi ghi hình.",
+      "Bộ lọc từ khóa đạt độ chính xác tối thiểu 99 phần trăm trong báo cáo kiểm thử tự động của Trưởng bộ phận vận hành.",
+      "Cơ sở dữ liệu lịch trình và di chuyển của KOL được cập nhật ít nhất 1 lần mỗi tuần bởi Quản trị viên hệ thống."
+    ],
+    "next_review_trigger": "Xảy ra bất kỳ sự cố sai lệch lịch trình nào do chatbot trả lời, hoặc tỷ lệ database thất bại vượt quá 5 phần trăm trong 2 giờ, hoặc thay đổi nhà cung cấp API LLM, hoặc đến ngày review định kỳ 2026-10-31.",
+    "residual_risk_rationale": "Rủi ro còn lại liên quan đến lỗi hành trình do chatbot đã được cô lập hiệu quả nhờ giới hạn chatbot chỉ trả lời từ cơ sở dữ liệu đã xác thực RAG tĩnh, cấm tự sinh thông tin số và tắt bot ngay khi có cảnh báo. Đối với kịch bản, rủi ro bịa đặt được triệt tiêu hoàn toàn nhờ quy trình ký duyệt bắt buộc của KOL trước khi quay. Do đó, quyết định phát hành có điều kiện conditional-go là phù hợp với bằng chứng kiểm soát hiện tại."
   }
 }
